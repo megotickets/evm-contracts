@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Mego Tickets Public",
+        "chain": "ethereum",
+        "network": "polygon",
+        "contract_address": "0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84",
+        "icon": ""
+    },
+    {
+        "name": "Mego Tickets Public",
+        "chain": "ethereum",
+        "network": "optimism",
+        "contract_address": "0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84",
+        "icon": ""
+    },
+    {
+        "name": "Mego Tickets Public",
+        "chain": "ethereum",
+        "network": "quadrans",
+        "contract_address": "0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84",
+        "icon": ""
+    }
+]
