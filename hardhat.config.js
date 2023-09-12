@@ -15,6 +15,9 @@ let hardhatConfigs = {
     goerli: {
       url: provider
     },
+    polygon_zkevm: {
+      url: provider
+    },
     linea_mainnet: {
       url: provider
     },
@@ -78,6 +81,7 @@ if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
       goerli: process.env.ETHERSCAN,
       optimisticEthereum: process.env.ETHERSCAN,
       linea_mainnet: process.env.ETHERSCAN,
+      polygon_zkevm: process.env.ETHERSCAN,
       'base-goerli': 'NO_API_KEY_NEEDED',
       'quadrans': 'NO_API_KEY_NEEDED'
     },
@@ -104,6 +108,14 @@ if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
         urls: {
           apiURL: "https://api.lineascan.build/api",
           browserURL: "https://lineascan.build/"
+        }
+      },
+      {
+        network: "polygon_zkevm",
+        chainId: 1101,
+        urls: {
+          apiURL: "https://api-zkevm.polygonscan.com/api",
+          browserURL: "https://zkevm.polygonscan.com/"
         }
       }
     ]
