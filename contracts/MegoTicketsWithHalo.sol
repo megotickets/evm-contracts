@@ -7,12 +7,12 @@ import "@openzeppelin/contracts/security/Pausable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./Base64.sol";
 
-/**
- * @title MegoTickets
- * Ticketing contract with on-chain metadata
- * https://mego.tickets
- * Created by: turinglabs <seb@turinglabs.org>
- */
+//
+// @title MegoTickets
+// Ticketing contract with on-chain metadata
+// https://mego.tickets
+// Created by: turinglabs <seb@turinglabs.org>
+//
  
 contract MegoTicketsWithHalo is ERC721, Ownable, Pausable {
     struct Ticket {

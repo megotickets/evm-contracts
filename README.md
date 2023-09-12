@@ -18,7 +18,22 @@ In order to allow the MEGO backend to call your `mint` function you have to whit
 | Mego Tickets Public | Polygon | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://polygonscan.com/address/0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84) |
 | Mego Tickets Public | Optimism | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://optimistic.etherscan.io/address/0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84) |
 | Mego Tickets Public | Quadrans | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://explorer.quadrans.io/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84/transactions) |
+| Mego Tickets Public | Linea | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://lineascan.build/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84/transactions) |
 
 ## How to add a new contract
 
 For now, you can create a PR with your contract and we'll review it and add it to the `allowed_contracts.json` list.
+
+## Test in your local network
+
+In order to test your contract in a local network you can run the following command:
+
+```
+yarn network
+```
+
+This will create a new config file and a new mnemonic in the `configs` folder. Now you can deploy your contract in your local network and test it with provided scripts using folloiwng structure:
+
+```
+yarn task <SCRIPT_NAME> <NETWORK>
+```

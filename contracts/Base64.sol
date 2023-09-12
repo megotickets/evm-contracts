@@ -5,6 +5,7 @@ pragma solidity ^0.8.6;
 /// @title Base64
 /// @notice Provides a function for encoding some bytes in base64
 /// @author Brecht Devos <brecht@loopring.org>
+
 library Base64 {
     bytes internal constant TABLE =
         "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";

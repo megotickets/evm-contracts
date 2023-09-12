@@ -20,7 +20,7 @@ async function main() {
     console.log("Pending tx:", result.hash)
     await result.wait()
     console.log('-> Done!')
-    await sleep(10000)
+    await sleep(3000)
 
     // set proxy address 1
     nonce = await provider.getTransactionCount(wallet.address)
@@ -28,7 +28,7 @@ async function main() {
     console.log("Pending tx:", result2.hash)
     await result2.wait()
     console.log('-> Done!')
-    await sleep(10000)
+    await sleep(3000)
 
     // set proxy address 2
     nonce = await provider.getTransactionCount(wallet.address)
