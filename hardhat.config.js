@@ -15,6 +15,9 @@ let hardhatConfigs = {
     goerli: {
       url: provider
     },
+    linea: {
+      url: provider
+    },
     optimism: {
       url: provider
     },
@@ -69,7 +72,16 @@ if (process.env.POLYGONSCAN !== undefined && process.env.POLYGONSCAN !== '') {
 
 if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
   hardhatConfigs.etherscan = {
-    apiKey: { mainnet: process.env.ETHERSCAN, rinkeby: process.env.ETHERSCAN, goerli: process.env.ETHERSCAN, optimisticEthereum: process.env.ETHERSCAN, 'base-goerli': 'NO_API_KEY_NEEDED', 'quadrans': 'NO_API_KEY_NEEDED' }, customChains: [
+    apiKey: {
+      mainnet: process.env.ETHERSCAN,
+      rinkeby: process.env.ETHERSCAN,
+      goerli: process.env.ETHERSCAN,
+      optimisticEthereum: process.env.ETHERSCAN,
+      linea: process.env.ETHERSCAN,
+      'base-goerli': 'NO_API_KEY_NEEDED',
+      'quadrans': 'NO_API_KEY_NEEDED'
+    },
+    customChains: [
       {
         network: "base-goerli",
         chainId: 84531,
