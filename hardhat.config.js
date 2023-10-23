@@ -41,6 +41,9 @@ let hardhatConfigs = {
     'base-goerli': {
       url: provider
     },
+    'base-mainnet': {
+      url: provider
+    },
   },
   solidity: "0.8.6",
 }
@@ -74,6 +77,7 @@ if (process.env.POLYGONSCAN !== undefined && process.env.POLYGONSCAN !== '') {
 }
 
 if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
+  console.log("Etherscan key found, adding networks.")
   hardhatConfigs.etherscan = {
     apiKey: {
       mainnet: process.env.ETHERSCAN,
@@ -82,6 +86,7 @@ if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
       optimisticEthereum: process.env.ETHERSCAN,
       linea_mainnet: process.env.ETHERSCAN,
       polygon_zkevm: process.env.ETHERSCAN,
+      'base-mainnet': process.env.ETHERSCAN,
       'base-goerli': 'NO_API_KEY_NEEDED',
       'quadrans': 'NO_API_KEY_NEEDED'
     },
@@ -92,6 +97,14 @@ if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
         urls: {
           apiURL: "https://api-goerli.basescan.org/api",
           browserURL: "https://goerli.basescan.org"
+        }
+      },
+      {
+        network: "base-mainnet",
+        chainId: 8453,
+        urls: {
+          apiURL: "https://api.basescan.org/api",
+          browserURL: "https://basescan.org"
         }
       },
       {
