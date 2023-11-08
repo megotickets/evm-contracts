@@ -40,6 +40,7 @@ async function main() {
     await sleep(3000)
 
     // set proxy address 3
+    nonce = await provider.getTransactionCount(wallet.address)
     console.log("Adding minter:", "0x6783f0f7FFF0F60E277a29D4B762C312Ec5463F8")
     result4 = await contract.setProxyAddress("0x6783f0f7FFF0F60E277a29D4B762C312Ec5463F8", true, { nonce: nonce, gasPrice })
     console.log("Pending tx:", result4.hash)

@@ -21,6 +21,7 @@ In order to allow the MEGO backend to call your `mint` function you have to whit
 | Mego Tickets Public | Linea | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://lineascan.build/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84/transactions) |
 | Mego Tickets Public | Polygon zkEVM | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://zkevm.polygonscan.com/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84) |
 | Mego Tickets X Coinbase | Base | [0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84](https://basescan.org/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84)
+| Mego Tickets X SeasonPass| Mumbai | [0x72939221Eff8f562357d46016a1e53ceBe8e6f84](https://polygonscan.com/address/0x72939221Eff8f562357d46016a1e53ceBe8e6f84) |
 
 ## How to add a new contract
 
