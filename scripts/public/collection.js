@@ -1,6 +1,6 @@
 const { ethers, utils } = require("ethers");
 const fs = require('fs');
-const { generate, derive } = require('../libs/address_generator')
+const { generate, derive } = require('../../libs/address_generator')
 
 async function main() {
     const configs = JSON.parse(fs.readFileSync(process.env.CONFIG).toString())

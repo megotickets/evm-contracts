@@ -8,7 +8,7 @@ async function main() {
     const provider = new ethers.providers.JsonRpcProvider(configs.provider);
     let wallet = new ethers.Wallet(configs.owner_key).connect(provider)
     const contract = new ethers.Contract(configs.contract_address, ABI.abi, wallet)
-    const owned = await contract.tokensOfOwner("0xE6c30AD5AeE7AD22e9F39D51d67667587cdD05A1")
+    const owned = await contract.tokensOfOwner("0x42694cac013b230e035f85bc2e158aff49bfe4cf")
     console.log('OWNED', owned)
 }
 

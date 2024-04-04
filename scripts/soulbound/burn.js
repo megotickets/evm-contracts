@@ -1,6 +1,5 @@
 const { ethers, utils } = require("ethers");
 const fs = require('fs');
-const { generate, derive } = require('../libs/address_generator')
 
 async function main() {
     const configs = JSON.parse(fs.readFileSync(process.env.CONFIG).toString())
@@ -9,14 +8,11 @@ async function main() {
     let wallet = new ethers.Wallet(configs.owner_key).connect(provider)
     const contract = new ethers.Contract(configs.contract_address, ABI.abi, wallet)
 
-    const amountPub = 1
-    const address = "0x42694cac013b230e035f85bc2e158aff49bfe4cf"
-    const tier = Object.keys(configs.tiers)[0]
-    console.log("Minting", amountPub, "of", tier)
+    const tokenId = 2
 
     try {
         const gasPrice = (await provider.getGasPrice()).mul(2)
-        const resultPub = await contract.mint(address, tier, amountPub, { gasPrice })
+        const resultPub = await contract.burn(tokenId, { gasPrice })
         console.log("Waiting at: " + resultPub.hash)
         await resultPub.wait()
     } catch (e) {

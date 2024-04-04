@@ -1,6 +1,5 @@
 const { ethers, utils } = require("ethers");
 const fs = require('fs');
-const { generate, derive } = require('../libs/address_generator')
 
 async function main() {
     const configs = JSON.parse(fs.readFileSync(process.env.CONFIG).toString())
@@ -8,20 +7,21 @@ async function main() {
     const provider = new ethers.providers.JsonRpcProvider(configs.provider);
     let wallet = new ethers.Wallet(configs.owner_key).connect(provider)
     const contract = new ethers.Contract(configs.contract_address, ABI.abi, wallet)
+    const TIERS = configs.tiers
 
-    const amountPub = 1
-    const address = "0x42694cac013b230e035f85bc2e158aff49bfe4cf"
-    const tier = Object.keys(configs.tiers)[0]
-    console.log("Minting", amountPub, "of", tier)
-
-    try {
+    for (let k in TIERS) {
+        console.log('Changing plan ' + k)
         const gasPrice = (await provider.getGasPrice()).mul(2)
-        const resultPub = await contract.mint(address, tier, amountPub, { gasPrice })
-        console.log("Waiting at: " + resultPub.hash)
-        await resultPub.wait()
-    } catch (e) {
-        console.log("FAILED")
-        console.log(e.message)
+        try {
+            const nonce = await provider.getTransactionCount(wallet.address)
+            const result = await contract.manageTickets(k, TIERS[k].owner, TIERS[k].name, TIERS[k].description, TIERS[k].image, TIERS[k].soulbound, { nonce: nonce, gasPrice })
+            console.log("Pending transaction:", result.hash)
+            await result.wait()
+            console.log('-> Plan changed!')
+        } catch (e) {
+            console.log(e.message)
+            console.log("Can't change plan.")
+        }
     }
 }
 

@@ -27,12 +27,12 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
     mapping(string => Ticket) public _tickets;
     mapping(uint256 => string) public _idToTier;
     mapping(uint256 => string) public _idToSerial;
+    mapping(uint256 => bool) public _burned;
     mapping(address => bool) public _proxies;
-
-    bool isPaused = false;
 
     event Minted(uint256 indexed tokenId);
     event Claimed(uint256 indexed tokenId);
+    event Burned(uint256 indexed tokenId);
 
     constructor(
         string memory _name,
@@ -59,12 +59,12 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
             string[] memory tiers = new string[](tokenCount);
             uint256 totalTkns = totalSupply();
             uint256 resultIndex = 0;
-            uint256 tnkId;
+            uint256 tknId;
 
-            for (tnkId = 1; tnkId <= totalTkns; tnkId++) {
-                if (ownerOf(tnkId) == _owner) {
-                    result[resultIndex] = tnkId;
-                    tiers[resultIndex] = _idToTier[tnkId];
+            for (tknId = 1; tknId <= totalTkns; tknId++) {
+                if (!_burned[tknId] && ownerOf(tknId) == _owner) {
+                    result[resultIndex] = tknId;
+                    tiers[resultIndex] = _idToTier[tknId];
                     resultIndex++;
                 }
             }
@@ -134,7 +134,10 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         string memory tier,
         uint256 amount
     ) external {
-        require(_proxies[msg.sender], "MegoTicketsSoulbound: Only proxy can mint");
+        require(
+            _proxies[msg.sender],
+            "MegoTicketsSoulbound: Only proxy can mint"
+        );
         require(
             _tickets[tier].exists,
             "MegoTicketsSoulbound: Minting a non-existent tier"
@@ -153,6 +156,19 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         }
     }
 
+    function burn(uint256 tokenId) public {
+        require(
+            _proxies[msg.sender] || ownerOf(tokenId) == msg.sender,
+            "MegoTicketsSoulbound: Only proxy or owner can burn"
+        );
+        require(!_burned[tokenId], "MegoTicketsSoulbound: Already burned");
+        _burned[tokenId] = true;
+        _idToSerial[tokenId] = "";
+        _idToTier[tokenId] = "";
+        _burn(tokenId);
+        emit Burned(tokenId);
+    }
+
     function _beforeTokenTransfer(
         address from,
         address to,
@@ -160,7 +176,7 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
     ) internal override {
         string memory tier = _idToTier[tokenId];
         require(
-            !_tickets[tier].soulbound || from == address(0),
+            !_tickets[tier].soulbound || from == address(0) || _burned[tokenId],
             "MegoTicketsSoulbound: Can't transfer soulbound ticket"
         );
         super._beforeTokenTransfer(from, to, tokenId);
