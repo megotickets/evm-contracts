@@ -6,7 +6,7 @@ let hardhatConfigs = {
   defaultNetwork: "hardhat",
   networks: {
     hardhat: {},
-    mumbai: {
+    amoy: {
       url: provider
     },
     polygon: {
