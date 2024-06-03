@@ -72,67 +72,70 @@ if (process.env.PROVIDER !== undefined) {
   }
 }
 
-if (process.env.POLYGONSCAN !== undefined && process.env.POLYGONSCAN !== '') {
-  hardhatConfigs.etherscan = { apiKey: { polygonMumbai: process.env.POLYGONSCAN, polygon: process.env.POLYGONSCAN } }
-}
 
-if (process.env.ETHERSCAN !== undefined && process.env.ETHERSCAN !== '') {
-  console.log("Etherscan key found, adding networks.")
-  hardhatConfigs.etherscan = {
-    apiKey: {
-      mainnet: process.env.ETHERSCAN,
-      rinkeby: process.env.ETHERSCAN,
-      goerli: process.env.ETHERSCAN,
-      optimisticEthereum: process.env.ETHERSCAN,
-      linea_mainnet: process.env.ETHERSCAN,
-      polygon_zkevm: process.env.ETHERSCAN,
-      'base-mainnet': process.env.ETHERSCAN,
-      'base-goerli': 'NO_API_KEY_NEEDED',
-      'quadrans': 'NO_API_KEY_NEEDED'
-    },
-    customChains: [
-      {
-        network: "base-goerli",
-        chainId: 84531,
-        urls: {
-          apiURL: "https://api-goerli.basescan.org/api",
-          browserURL: "https://goerli.basescan.org"
-        }
-      },
-      {
-        network: "base-mainnet",
-        chainId: 8453,
-        urls: {
-          apiURL: "https://api.basescan.org/api",
-          browserURL: "https://basescan.org"
-        }
-      },
-      {
-        network: "quadrans",
-        chainId: 10946,
-        urls: {
-          apiURL: "https://explorer.quadrans.io/api",
-          browserURL: "https://explorer.quadrans.io/address"
-        }
-      },
-      {
-        network: "linea_mainnet",
-        chainId: 59144,
-        urls: {
-          apiURL: "https://api.lineascan.build/api",
-          browserURL: "https://lineascan.build/"
-        }
-      },
-      {
-        network: "polygon_zkevm",
-        chainId: 1101,
-        urls: {
-          apiURL: "https://api-zkevm.polygonscan.com/api",
-          browserURL: "https://zkevm.polygonscan.com/"
-        }
+console.log("Etherscan key found, adding networks.")
+hardhatConfigs.etherscan = {
+  apiKey: {
+    mainnet: process.env.ETHERSCAN,
+    rinkeby: process.env.ETHERSCAN,
+    goerli: process.env.ETHERSCAN,
+    optimisticEthereum: process.env.ETHERSCAN,
+    linea_mainnet: process.env.ETHERSCAN,
+    polygon_zkevm: process.env.ETHERSCAN,
+    'base-mainnet': process.env.ETHERSCAN,
+    'base-goerli': 'NO_API_KEY_NEEDED',
+    'quadrans': 'NO_API_KEY_NEEDED'
+  },
+  customChains: [
+    {
+      network: "amoy",
+      chainId: 80002,
+      urls: {
+        apiURL: "https://api-amoy.polygonscan.com/api",
+        browserURL: "https://amoy.polygonscan.com/"
       }
-    ]
-  }
+    },
+    {
+      network: "base-goerli",
+      chainId: 84531,
+      urls: {
+        apiURL: "https://api-goerli.basescan.org/api",
+        browserURL: "https://goerli.basescan.org"
+      }
+    },
+    {
+      network: "base-mainnet",
+      chainId: 8453,
+      urls: {
+        apiURL: "https://api.basescan.org/api",
+        browserURL: "https://basescan.org"
+      }
+    },
+    {
+      network: "quadrans",
+      chainId: 10946,
+      urls: {
+        apiURL: "https://explorer.quadrans.io/api",
+        browserURL: "https://explorer.quadrans.io/address"
+      }
+    },
+    {
+      network: "linea_mainnet",
+      chainId: 59144,
+      urls: {
+        apiURL: "https://api.lineascan.build/api",
+        browserURL: "https://lineascan.build/"
+      }
+    },
+    {
+      network: "polygon_zkevm",
+      chainId: 1101,
+      urls: {
+        apiURL: "https://api-zkevm.polygonscan.com/api",
+        browserURL: "https://zkevm.polygonscan.com/"
+      }
+    }
+  ]
 }
 
 module.exports = hardhatConfigs;
