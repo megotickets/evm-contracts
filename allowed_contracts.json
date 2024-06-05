@@ -26,5 +26,12 @@
         "network": "linea",
         "contract_address": "0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84",
         "icon": ""
+    },
+    {
+        "name": "Mego Tickets Public",
+        "chain": "ethereum",
+        "network": "base",
+        "contract_address": "0x854984df91AAc6FE1dC69b163484FA9cDca7Fa2F",
+        "icon": ""
     }
 ]
