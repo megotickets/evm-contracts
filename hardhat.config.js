@@ -38,7 +38,7 @@ let hardhatConfigs = {
         explorerUrl: 'https://explorer.quadrans.io/address',
       }
     },
-    'base-goerli': {
+    'base-sepolia': {
       url: provider
     },
     'base-mainnet': {
@@ -83,7 +83,7 @@ hardhatConfigs.etherscan = {
     linea_mainnet: process.env.ETHERSCAN,
     polygon_zkevm: process.env.ETHERSCAN,
     'base-mainnet': process.env.ETHERSCAN,
-    'base-goerli': 'NO_API_KEY_NEEDED',
+    'base-sepolia': process.env.ETHERSCAN,
     'quadrans': 'NO_API_KEY_NEEDED'
   },
   customChains: [
@@ -96,11 +96,11 @@ hardhatConfigs.etherscan = {
       }
     },
     {
-      network: "base-goerli",
-      chainId: 84531,
+      network: "base-sepolia",
+      chainId: 84532,
       urls: {
-        apiURL: "https://api-goerli.basescan.org/api",
-        browserURL: "https://goerli.basescan.org"
+        apiURL: "https://api-sepolia.basescan.org/api",
+        browserURL: "https://sepolia.basescan.org"
       }
     },
     {
