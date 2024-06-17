@@ -11,7 +11,7 @@ async function main() {
     const totalSupply = await contract.totalSupply()
     console.log('TOTAL SUPPLY IS: ' + totalSupply)
     let ended = false
-    let i = 10
+    let i = 1
     let errors = 0
     while (!ended) {
         try {
@@ -25,7 +25,7 @@ async function main() {
             i++
             errors = 0
         } catch (e) {
-            console.log(e)
+            // console.log(e)
             if (i === 1) {
                 console.log('No tokens found.')
             }
