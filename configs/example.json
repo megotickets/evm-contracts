@@ -9,5 +9,6 @@
     "owner_mnemonic": "",
     "provider": "http://127.0.0.1:8545",
     "owner_key": "",
-    "owner_address": ""
+    "owner_address": "",
+    "factory_address": ""
 }
