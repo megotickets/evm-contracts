@@ -22,17 +22,24 @@ contract MegoTicketsFactory {
     function createMegoTicketsPublic(
         string memory _name,
         string memory _ticker,
-        address _owner
+        address _owner,
+        address _proxyAddress
     ) external returns (address) {
         MegoTicketsPublic newContract = new MegoTicketsPublic(_name, _ticker);
         address newContractAddress = address(newContract);
+        newContract.setProxyAddress(_proxyAddress, true);
         newContract.transferOwnership(_owner);
         // Record the deployed contract for the sender
         deployedContracts[_owner].push(newContractAddress);
         // Add to the global list as well
         allDeployedContracts.push(newContractAddress);
 
-        emit MegoTicketsPublicDeployed(_owner, newContractAddress, _name, _ticker);
+        emit MegoTicketsPublicDeployed(
+            _owner,
+            newContractAddress,
+            _name,
+            _ticker
+        );
 
         return newContractAddress;
     }

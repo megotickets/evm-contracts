@@ -29,7 +29,7 @@ async function main() {
 
     try {
         const gasPrice = (await provider.getGasPrice()).mul(2);
-        const resultPub = await contract.createMegoTicketsPublic(name, ticker, wallet.address, {
+        const resultPub = await contract.createMegoTicketsPublic(name, ticker, wallet.address, proxyAddress, {
             gasPrice,
         });
         console.log("Waiting at: " + resultPub.hash);
@@ -47,11 +47,8 @@ async function main() {
             const megoContract = new ethers.Contract(deployedEvent.args.deployedAddress, MEGO_ABI.abi, wallet);
             const ownerOfContract = await megoContract.owner();
             console.log("Owner of contract:", ownerOfContract);
-            const result = await megoContract.setProxyAddress(proxyAddress, true, {
-                gasPrice,
-            });
-            console.log("Waiting at: " + result.hash);
-            await result.wait();
+            const isProxy = await megoContract._proxies(proxyAddress);
+            console.log("Is proxy:", isProxy);
             console.log("Proxy address set correctly");
         } else {
             console.log("Deployed event not found in the transaction receipt.");
