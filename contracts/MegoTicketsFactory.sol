@@ -19,11 +19,12 @@ contract MegoTicketsFactory {
     // Function to create a new MegoTicketsPublic contract
     function createMegoTicketsPublic(
         string memory _name,
-        string memory _ticker
+        string memory _ticker,
+        address _owner
     ) external returns (address) {
         MegoTicketsPublic newContract = new MegoTicketsPublic(_name, _ticker);
         address newContractAddress = address(newContract);
-        newContract.transferOwnership(msg.sender);
+        newContract.transferOwnership(_owner);
         // Record the deployed contract for the sender
         deployedContracts[msg.sender].push(newContractAddress);
         // Add to the global list as well

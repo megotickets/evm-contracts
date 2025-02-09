@@ -29,7 +29,7 @@ async function main() {
 
     try {
         const gasPrice = (await provider.getGasPrice()).mul(2);
-        const resultPub = await contract.createMegoTicketsPublic(name, ticker, {
+        const resultPub = await contract.createMegoTicketsPublic(name, ticker, wallet.address, {
             gasPrice,
         });
         console.log("Waiting at: " + resultPub.hash);
