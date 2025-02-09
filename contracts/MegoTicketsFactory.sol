@@ -13,7 +13,9 @@ contract MegoTicketsFactory {
     // Event to emit when a new MegoTicketsPublic contract is deployed
     event MegoTicketsPublicDeployed(
         address indexed deployer,
-        address deployedAddress
+        address deployedAddress,
+        string name,
+        string ticker
     );
 
     // Function to create a new MegoTicketsPublic contract
@@ -30,7 +32,7 @@ contract MegoTicketsFactory {
         // Add to the global list as well
         allDeployedContracts.push(newContractAddress);
 
-        emit MegoTicketsPublicDeployed(_owner, newContractAddress);
+        emit MegoTicketsPublicDeployed(_owner, newContractAddress, _name, _ticker);
 
         return newContractAddress;
     }
