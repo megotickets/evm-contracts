@@ -4,7 +4,8 @@
   "scripts": {
     "test": "npx hardhat test",
     "network": "node scripts/_network.js",
-    "verify": "node scripts/_verify.js",
+    "verify-contract": "node scripts/_verify_contract.js",
+    "verify-factory": "node scripts/_verify_factory.js",
     "task": "node scripts/_task.js"
   },
   "author": "turinglabs <seb@turinglabs.org>",

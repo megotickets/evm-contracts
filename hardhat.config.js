@@ -78,6 +78,7 @@ hardhatConfigs.etherscan = {
   apiKey: {
     mainnet: process.env.ETHERSCAN,
     rinkeby: process.env.ETHERSCAN,
+    polygon: process.env.ETHERSCAN,
     goerli: process.env.ETHERSCAN,
     optimisticEthereum: process.env.ETHERSCAN,
     linea_mainnet: process.env.ETHERSCAN,

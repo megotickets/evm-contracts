@@ -7,6 +7,10 @@ If you want to create your own ticket contract you can use this repository as a 
 
 Main requirement is that your contract implements the `mint` function, which is used to create new tickets and you allow the MEGO backend to call this function. You can fork this repository and use the `MegoTicketsPublic.sol` contract as a template.
 
+## How to use the factory contract
+
+You can use the `MegoTicketsFactory.sol` contract to create your own ticket contract. This contract will handle the deployment of your contract and the minting of tickets.
+
 ## Whitelist our proxy address
 
 In order to allow the MEGO backend to call your `mint` function you have to whitelist our proxy address `0x42694CAc013b230e035F85Bc2E158aFf49BFe4CF` in your contract. This address will send the transactions for you and will send the minted tickets to the buyer. You can deploy the contract in any EVM chain and if not supported yet, we'll add in our backend during the onboarding process.
@@ -17,12 +21,11 @@ In order to allow the MEGO backend to call your `mint` function you have to whit
 | --- | --- | --- |
 | Mego Tickets Public | Polygon | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://polygonscan.com/address/0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84) |
 | Mego Tickets Public | Optimism | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://optimistic.etherscan.io/address/0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84) |
-| Mego Tickets Public | Quadrans | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://explorer.quadrans.io/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84/transactions) |
 | Mego Tickets Public | Linea | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://lineascan.build/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84/transactions) |
 | Mego Tickets Public | Polygon zkEVM | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://zkevm.polygonscan.com/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84) |
 | Mego Tickets X Coinbase | Base | [0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84](https://basescan.org/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84)
 | Mego Tickets Public | Base | [0x854984df91AAc6FE1dC69b163484FA9cDca7Fa2F](https://basescan.org/address/0x854984df91AAc6FE1dC69b163484FA9cDca7Fa2F)
-
+| Mego Tickets Factory | Polygon | [0xB269C3ECefE0EB821D504c37ED324CCa98fE3553](https://polygonscan.com/address/0xB269C3ECefE0EB821D504c37ED324CCa98fE3553)
 
 ## How to add a new contract
 
