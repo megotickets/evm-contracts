@@ -25,7 +25,7 @@ In order to allow the MEGO backend to call your `mint` function you have to whit
 | Mego Tickets Public | Polygon zkEVM | [0x0540f4fabe2ae63f1aac7a31da8d250d6c5cda84](https://zkevm.polygonscan.com/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84) |
 | Mego Tickets X Coinbase | Base | [0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84](https://basescan.org/address/0x0540F4fabE2AE63f1aaC7A31DA8d250d6c5CDa84)
 | Mego Tickets Public | Base | [0x854984df91AAc6FE1dC69b163484FA9cDca7Fa2F](https://basescan.org/address/0x854984df91AAc6FE1dC69b163484FA9cDca7Fa2F)
-| Mego Tickets Factory | Polygon | [0xB269C3ECefE0EB821D504c37ED324CCa98fE3553](https://polygonscan.com/address/0xB269C3ECefE0EB821D504c37ED324CCa98fE3553)
+| Mego Tickets Factory | Polygon | [0x4025BE502A64C0817D7e22dC2F7Ea07434153Bd0](https://polygonscan.com/address/0x4025BE502A64C0817D7e22dC2F7Ea07434153Bd0)
 
 ## How to add a new contract
 

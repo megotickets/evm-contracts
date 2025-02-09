@@ -26,20 +26,20 @@ contract MegoTicketsFactory {
         address newContractAddress = address(newContract);
         newContract.transferOwnership(_owner);
         // Record the deployed contract for the sender
-        deployedContracts[msg.sender].push(newContractAddress);
+        deployedContracts[_owner].push(newContractAddress);
         // Add to the global list as well
         allDeployedContracts.push(newContractAddress);
 
-        emit MegoTicketsPublicDeployed(msg.sender, newContractAddress);
+        emit MegoTicketsPublicDeployed(_owner, newContractAddress);
 
         return newContractAddress;
     }
 
     // Utility function to get all contracts deployed by a particular address
     function getDeployedContracts(
-        address deployer
+        address _owner
     ) external view returns (address[] memory) {
-        return deployedContracts[deployer];
+        return deployedContracts[_owner];
     }
 
     // Utility function to get all deployed MegoTicketsPublic contracts
