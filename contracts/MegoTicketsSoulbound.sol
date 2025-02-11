@@ -19,7 +19,6 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         string image;
         uint16 numMinted;
         address owner;
-        bool soulbound;
     }
 
     uint256 private _tokenIdCounter;
@@ -82,8 +81,7 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         address owner,
         string memory name,
         string memory description,
-        string memory image,
-        bool soulbound
+        string memory image
     ) external {
         require(_proxies[msg.sender], "Can't manage tiers.");
         _tickets[tier].owner = owner;
@@ -91,7 +89,6 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         _tickets[tier].name = name;
         _tickets[tier].description = description;
         _tickets[tier].image = image;
-        _tickets[tier].soulbound = soulbound;
     }
 
     function returnMinted(string memory tier) external view returns (uint16) {
@@ -174,9 +171,8 @@ contract MegoTicketsSoulbound is ERC721, Ownable {
         address to,
         uint256 tokenId
     ) internal override {
-        string memory tier = _idToTier[tokenId];
         require(
-            !_tickets[tier].soulbound || from == address(0) || _burned[tokenId],
+            from == address(0) || _burned[tokenId],
             "MegoTicketsSoulbound: Can't transfer soulbound ticket"
         );
         super._beforeTokenTransfer(from, to, tokenId);
